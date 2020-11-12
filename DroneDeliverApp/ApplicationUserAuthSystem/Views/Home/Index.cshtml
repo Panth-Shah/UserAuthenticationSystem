@@ -1,12 +1,14 @@
 ﻿@{
     ViewBag.Title = "Index";
 }
-<h2>Index</h2>
-Welcome @HttpContext.Current.User.Identity.Name
-@if (Request.IsAuthenticated)
+<h2>Acme Drone Delivery Service Application</h2>
+@HttpContext.Current.User.Identity.Name
+@using (Html.BeginForm())
 {
-    using (Html.BeginForm("Logout", "User", FormMethod.Post, new { id = "logoutForm" }))
-    {
-        <a href="javascript:document.getElementById('logoutForm').submit()">Logout</a>
-    }
+    @Html.AntiForgeryToken()
+
+    <div>
+        @Html.ActionLink("Log In", "LogIn", "Home")
+        @Html.ActionLink("Register", "Register", "User")
+    </div>
 }

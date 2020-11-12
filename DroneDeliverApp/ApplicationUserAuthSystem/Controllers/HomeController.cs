@@ -55,7 +55,7 @@ namespace ApplicationUserAuthSystem.Controllers
                         else
                         {
                             return RedirectToAction("ViewUserInformation", new RouteValueDictionary(
-                                        new { controller = "User", action = "UserData", Id = data.ApplicationUserId }));
+                                        new { controller = "User", action = "UserData", Id = data.ApplicationUserId}));
                         }
                     }
                     else

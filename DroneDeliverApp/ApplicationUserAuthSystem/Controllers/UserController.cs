@@ -29,19 +29,37 @@ namespace ApplicationUserAuthSystem.Controllers
 
             if (ModelState.IsValid)
             {
-                var userCheck = _dbContext.ApplicationUsers.FirstOrDefault(x => x.EmailID == _user.EmailID);
-                if (userCheck == null)
+                using (UserRegistrationDBEntities _db = new UserRegistrationDBEntities())
                 {
-                    _user.Password = GetHash.GetHashForString(_user.Password);
-                    _dbContext.Configuration.ValidateOnSaveEnabled = false;
-                    _dbContext.ApplicationUsers.Add(_user);
-                    _dbContext.SaveChanges();
-                    return RedirectToAction("ViewUserInformation");
-                }
-                else
-                {
-                    ViewBag.error = "Email already exists";
-                    return View();
+                    var userCheck = _db.ApplicationUsers.FirstOrDefault(x => x.EmailID == _user.EmailID);
+                    ApplicationUser userData = new ApplicationUser();
+                    if (userCheck == null)
+                    {
+                        _user.Password = GetHash.GetHashForString(_user.Password);
+                        _dbContext.Configuration.ValidateOnSaveEnabled = false;
+                        var storeData = new ApplicationUser()
+                        {
+                            UserFirstName = _user.UserFirstName,
+                            UserFamilyName = _user.UserFamilyName,
+                            EmailID = _user.EmailID,
+                            Address1 = _user.Address1,
+                            Address2 = _user.Address2,
+                            Address3 = _user.Address3,
+                            Password = _user.Password,
+                            City = _user.City,
+                            State = _user.State,
+                            ZipCode = _user.ZipCode
+                        };
+                        _dbContext.ApplicationUsers.Add(storeData);
+                        _dbContext.SaveChanges();
+                        return RedirectToAction("ViewUserInformation", new RouteValueDictionary(
+                                                                new { controller = "User", action = "UserData", Id = storeData.ApplicationUserId}));
+                    }
+                    else
+                    {
+                        ViewBag.error = "Email already exists";
+                        return View();
+                    }
                 }
             }
             return View();
@@ -53,7 +71,7 @@ namespace ApplicationUserAuthSystem.Controllers
 
             using (UserRegistrationDBEntities _db = new UserRegistrationDBEntities())
             {
-                var userId = (byte)ReturnUrl["Id"];
+                var userId = Convert.ToInt32(ReturnUrl["Id"]);
                 var queryResult = _db.ApplicationUsers.FirstOrDefault(a => a.ApplicationUserId == userId);
                 userData.UserFirstName = queryResult.UserFirstName;
                 userData.UserFamilyName = queryResult.UserFamilyName;

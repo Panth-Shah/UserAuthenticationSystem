@@ -14,7 +14,7 @@ namespace ApplicationUserAuthSystem.Models
     
     public partial class ApplicationUser
     {
-        public byte ApplicationUserId { get; set; }
+        public int ApplicationUserId { get; set; }
         public string UserFirstName { get; set; }
         public string UserFamilyName { get; set; }
         public string EmailID { get; set; }
