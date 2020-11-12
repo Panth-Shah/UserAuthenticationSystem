@@ -130,6 +130,11 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="UILookup\IndexPage.JPG" />
+    <Content Include="UILookup\LogInPage.JPG" />
+    <Content Include="UILookup\UserAuthentication.JPG" />
+    <Content Include="UILookup\UserRegistrationPage.JPG" />
+    <Content Include="UILookup\ViewAndEditUserInformation.JPG" />
     <Content Include="Web.config" />
     <Content Include="Views\Home\Index.cshtml" />
   </ItemGroup>
