@@ -26,6 +26,5 @@ namespace ApplicationUserAuthSystem.Models
         }
     
         public virtual DbSet<ApplicationUser> ApplicationUsers { get; set; }
-        public virtual DbSet<UserAddress> UserAddresses { get; set; }
     }
 }

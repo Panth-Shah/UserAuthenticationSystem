@@ -4,5 +4,13 @@
     [UserFirstName] NVARCHAR(256) NOT NULL, 
     [UserFamilyName] NVARCHAR(256) NOT NULL, 
     [EmailID] NVARCHAR(50) NOT NULL, 
-    [Password] NVARCHAR(50) NOT NULL
+    [Password] NVARCHAR(50) NOT NULL, 
+    [Address1] NVARCHAR(256) NOT NULL, 
+    [Address2] NVARCHAR(50) NULL, 
+    [Address3] NVARCHAR(50) NULL, 
+    [City] NVARCHAR(256) NOT NULL, 
+    [ZipCode] CHAR(10) NOT NULL, 
+    [State] NVARCHAR(10) NOT NULL, 
+    [CreateDate] DATETIME NULL DEFAULT GETDATE(), 
+    [LastUpdate] DATETIME NULL DEFAULT GETDATE()
 )

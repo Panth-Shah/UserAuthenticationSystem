@@ -14,19 +14,18 @@ namespace ApplicationUserAuthSystem.Models
     
     public partial class ApplicationUser
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public ApplicationUser()
-        {
-            this.UserAddresses = new HashSet<UserAddress>();
-        }
-    
         public byte ApplicationUserId { get; set; }
         public string UserFirstName { get; set; }
         public string UserFamilyName { get; set; }
         public string EmailID { get; set; }
         public string Password { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<UserAddress> UserAddresses { get; set; }
+        public string Address1 { get; set; }
+        public string Address2 { get; set; }
+        public string Address3 { get; set; }
+        public string City { get; set; }
+        public string ZipCode { get; set; }
+        public string State { get; set; }
+        public System.DateTime CreateDate { get; set; }
+        public System.DateTime LastUpdate { get; set; }
     }
 }

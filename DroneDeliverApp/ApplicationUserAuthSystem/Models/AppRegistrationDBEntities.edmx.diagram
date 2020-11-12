@@ -6,8 +6,6 @@
     <edmx:Diagrams>
       <Diagram DiagramId="4a63c325f6a44d6ea2dd215c05fc5236" Name="Diagram1">
         <EntityTypeShape EntityType="UserRegistrationDBModel.ApplicationUser" Width="1.5" PointX="0.75" PointY="1.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="UserRegistrationDBModel.UserAddress" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
-        <AssociationConnector Association="UserRegistrationDBModel.FK_UserAddress_ApplicationUserId" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

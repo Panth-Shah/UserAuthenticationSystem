@@ -159,9 +159,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>AppRegistrationDBEntities.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Models\UserAddress.cs">
-      <DependentUpon>AppRegistrationDBEntities.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\Extended\ApplicationUser.cs" />
     <Compile Include="Models\Extended\UserRegistration.cs" />
     <Compile Include="Models\UserLogIn.cs" />
@@ -178,12 +175,12 @@
       <SubType>Designer</SubType>
     </Content>
     <None Include="packages.config" />
-    <Content Include="Views\User\Register.cshtml" />
     <Content Include="Views\Home\LogIn.cshtml" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\User\UserInformation.cshtml" />
+    <Content Include="Views\User\Register.cshtml" />
     <Content Include="Views\User\ViewUserInformation.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

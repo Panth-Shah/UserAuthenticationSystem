@@ -35,7 +35,7 @@ namespace ApplicationUserAuthSystem.Controllers
                     _dbContext.Configuration.ValidateOnSaveEnabled = false;
                     _dbContext.ApplicationUsers.Add(_user);
                     _dbContext.SaveChanges();
-                    return RedirectToAction("Index");
+                    return RedirectToAction("ViewUserInformation");
                 }
                 else
                 {
@@ -57,7 +57,12 @@ namespace ApplicationUserAuthSystem.Controllers
                 userData.UserFirstName = queryResult.UserFirstName;
                 userData.UserFamilyName = queryResult.UserFamilyName;
                 userData.EmailID = queryResult.EmailID;
-
+                userData.Address1 = queryResult.Address1;
+                userData.Address2 = queryResult.Address2;
+                userData.Address3 = queryResult.Address3;
+                userData.City = queryResult.City;
+                userData.State = queryResult.State;
+                userData.ZipCode = queryResult.ZipCode;
             }
             return View(userData);
         }
@@ -82,5 +87,6 @@ namespace ApplicationUserAuthSystem.Controllers
             Session.Clear();
             return RedirectToAction("LogIn");
         }
+
     }
 }
