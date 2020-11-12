@@ -26,6 +26,7 @@ namespace ApplicationUserAuthSystem.Controllers
         [HttpPost]
         public ActionResult Register(ApplicationUser _user)
         {
+
             if (ModelState.IsValid)
             {
                 var userCheck = _dbContext.ApplicationUsers.FirstOrDefault(x => x.EmailID == _user.EmailID);
@@ -52,8 +53,8 @@ namespace ApplicationUserAuthSystem.Controllers
 
             using (UserRegistrationDBEntities _db = new UserRegistrationDBEntities())
             {
-                var userId = ReturnUrl["Id"];
-                var queryResult = _db.ApplicationUsers.FirstOrDefault(a => a.ApplicationUserId == 1);
+                var userId = (byte)ReturnUrl["Id"];
+                var queryResult = _db.ApplicationUsers.FirstOrDefault(a => a.ApplicationUserId == userId);
                 userData.UserFirstName = queryResult.UserFirstName;
                 userData.UserFamilyName = queryResult.UserFamilyName;
                 userData.EmailID = queryResult.EmailID;

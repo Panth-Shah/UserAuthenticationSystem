@@ -20,12 +20,12 @@
           <Property Name="City" Type="nvarchar" MaxLength="256" Nullable="false" />
           <Property Name="ZipCode" Type="char" MaxLength="10" Nullable="false" />
           <Property Name="State" Type="nvarchar" MaxLength="10" Nullable="false" />
-          <Property Name="CreateDate" Type="datetime" Nullable="false" />
-          <Property Name="LastUpdate" Type="datetime" Nullable="false" />
+          <Property Name="CreateDate" Type="datetime2" Precision="7" />
+          <Property Name="LastUpdate" Type="datetime2" Precision="7" />
         </EntityType>
         <EntityContainer Name="UserRegistrationDBModelStoreContainer">
           <EntitySet Name="ApplicationUser" EntityType="Self.ApplicationUser" Schema="dbo" store:Type="Tables" />
-          </EntityContainer>
+        </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
@@ -45,8 +45,8 @@
           <Property Name="City" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
           <Property Name="ZipCode" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="false" />
           <Property Name="State" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
-          <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="LastUpdate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreateDate" Type="DateTime" Precision="7" />
+          <Property Name="LastUpdate" Type="DateTime" Precision="7" />
         </EntityType>
         <EntityContainer Name="UserRegistrationDBEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="ApplicationUsers" EntityType="Self.ApplicationUser" />

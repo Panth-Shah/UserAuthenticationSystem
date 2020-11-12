@@ -25,7 +25,7 @@ namespace ApplicationUserAuthSystem.Models
         public string City { get; set; }
         public string ZipCode { get; set; }
         public string State { get; set; }
-        public System.DateTime CreateDate { get; set; }
-        public System.DateTime LastUpdate { get; set; }
+        public Nullable<System.DateTime> CreateDate { get; set; }
+        public Nullable<System.DateTime> LastUpdate { get; set; }
     }
 }
