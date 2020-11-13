@@ -16,4 +16,5 @@ Upon successful login, I should be able to see and optionally modify my account 
 ![alt text](https://github.com/Panth-Shah/UserAuthenticationSystem/blob/master/DroneDeliverApp/ApplicationUserAuthSystem/UILookup/LogInPage.JPG)
 ![alt text](https://github.com/Panth-Shah/UserAuthenticationSystem/blob/master/DroneDeliverApp/ApplicationUserAuthSystem/UILookup/UserAuthentication.JPG)
 ![alt text](https://github.com/Panth-Shah/UserAuthenticationSystem/blob/master/DroneDeliverApp/ApplicationUserAuthSystem/UILookup/UserRegistrationPage.JPG)
-![alt text](https://github.com/Panth-Shah/UserAuthenticationSystem/blob/master/DroneDeliverApp/ApplicationUserAuthSystem/UILookup/ViewAndEditUserInformation.JPG)
+![alt text](https://github.com/Panth-Shah/UserAuthenticationSystem/blob/master/DroneDeliverApp/ApplicationUserAuthSystem/UILookup/EditUserInformation.JPG)
+![alt text](https://github.com/Panth-Shah/UserAuthenticationSystem/blob/master/DroneDeliverApp/ApplicationUserAuthSystem/UILookup/ViewUserInformation.JPG)
