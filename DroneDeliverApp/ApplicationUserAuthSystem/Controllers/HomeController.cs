@@ -18,7 +18,20 @@ namespace ApplicationUserAuthSystem.Controllers
         {
             return View();
         }
+
+        public ActionResult HandleIndexRequest(string request)
+        {
+            switch(request)
+            {
+                case ("LogIn"):
+                    return RedirectToAction("LogIn");
+                case ("Register"):
+                    return RedirectToAction("Register", "User");
+            }
+            return RedirectToAction("Index");
+        }
         //GET: LogIn
+        [HttpGet]
         public ActionResult LogIn()
         {
             return View();

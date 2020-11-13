@@ -18,6 +18,7 @@ namespace ApplicationUserAuthSystem.Controllers
         private UserRegistrationDBEntities _dbContext = new UserRegistrationDBEntities();
 
         //GET: Register
+        [HttpGet]
         public ActionResult Register()
         {
             return View();
