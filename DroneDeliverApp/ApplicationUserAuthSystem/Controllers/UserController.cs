@@ -8,6 +8,7 @@ using System.Web.Mvc;
 using System.Web.Security;
 using System.Web.Routing;
 using System.Data.Entity;
+using System.Net;
 
 namespace ApplicationUserAuthSystem.Controllers
 {
@@ -67,12 +68,13 @@ namespace ApplicationUserAuthSystem.Controllers
 
         public ActionResult ViewUserInformation(RouteValueDictionary ReturnUrl)
         {
-            ApplicationUser userData = new ApplicationUser();
+            UserInformationViewEdit userData = new UserInformationViewEdit();
 
             using (UserRegistrationDBEntities _db = new UserRegistrationDBEntities())
             {
                 var userId = Convert.ToInt32(ReturnUrl["Id"]);
                 var queryResult = _db.ApplicationUsers.FirstOrDefault(a => a.ApplicationUserId == userId);
+                userData.UserId = userId;
                 userData.UserFirstName = queryResult.UserFirstName;
                 userData.UserFamilyName = queryResult.UserFamilyName;
                 userData.EmailID = queryResult.EmailID;
@@ -88,15 +90,40 @@ namespace ApplicationUserAuthSystem.Controllers
 
         //POST: Resgister
         [HttpPost]
-        public ActionResult Edit(ApplicationUser _editUser)
+        public ActionResult ProcessEditRequest(int? ID,UserInformationViewEdit _user, string save, string edit)
         {
-            if (ModelState.IsValid)
+            if (!string.IsNullOrEmpty(edit))
             {
-                _dbContext.Entry(_editUser).State = EntityState.Modified;
-                _dbContext.SaveChanges();
-                return RedirectToAction("ViewUserInformation");
+                return View("~/Views/User/EditUserInformation.cshtml", _user);
             }
-            return View(_editUser);
+
+            if (!string.IsNullOrEmpty(save))
+            {
+                if (_user != null && ModelState.IsValid)
+                {
+                    ApplicationUser userData = new ApplicationUser();
+
+                    using (UserRegistrationDBEntities _db = new UserRegistrationDBEntities())
+                    {
+                        var queryResult = _db.ApplicationUsers.FirstOrDefault(a => a.ApplicationUserId == ID);
+                        queryResult.UserFirstName = _user.UserFirstName;
+                        queryResult.UserFamilyName = _user.UserFamilyName;
+                        queryResult.Address1 = _user.Address1;
+                        queryResult.Address2 = _user.Address2;
+                        queryResult.Address3 = _user.Address3;
+                        queryResult.City = _user.City;
+                        queryResult.State = _user.State;
+                        queryResult.ZipCode = _user.ZipCode;
+                        _db.SaveChanges();
+                    }
+                    return View("~/Views/User/ViewUserInformation.cshtml", _user);
+                }
+                else
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+            }
+            return View("~/Views/User/ViewUserInformation.cshtml", _user);
         }
 
 

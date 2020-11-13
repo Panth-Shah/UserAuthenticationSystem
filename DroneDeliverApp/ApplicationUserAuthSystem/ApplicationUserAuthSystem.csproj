@@ -166,6 +166,7 @@
     </Compile>
     <Compile Include="Models\Extended\ApplicationUser.cs" />
     <Compile Include="Models\Extended\UserRegistration.cs" />
+    <Compile Include="Models\UserInformationViewEdit.cs" />
     <Compile Include="Models\UserLogIn.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -187,6 +188,7 @@
     <Content Include="Views\User\UserInformation.cshtml" />
     <Content Include="Views\User\Register.cshtml" />
     <Content Include="Views\User\ViewUserInformation.cshtml" />
+    <Content Include="Views\User\EditUserInformation.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
